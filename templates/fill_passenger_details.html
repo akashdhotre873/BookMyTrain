@@ -1,0 +1,60 @@
+<html>
+    <body>
+        <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    <p>Name : </p> 
+                </td>
+                <td> 
+                    <input type="text" name="name" placeholder="Enter passenger name" required >
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Email id : </p> 
+                </td>
+                <td> 
+                    <input type="email" name="email" placeholder="abc@gmail.com" required >
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Mobile No. : </p> 
+                </td>
+                <td> 
+                    <input type="text" name="mobile_no" required >
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Age : </p> 
+                </td>
+                <td> 
+                    <input type="number" name="age" required >
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Gender : </p> 
+                </td>
+                <td> 
+                    <input type="text" name="gender" placeholder="M for male and F for female" required >
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center" colspan="2">
+                    <input type="Submit" name="confrim_details" value="Confirm Details">
+                </td>
+            </tr>
+
+        </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <style type="text/css">
+            .topcorner1{
+              position:absolute;
+              top:0;
+              right:150;
+            }
+           </style>
+           <style type="text/css">
+            .topcorner2{
+              position:absolute;
+              top:0;
+              right:20;
+            }
+           </style>
+    </head>
+    <body>
+        <h2 class="topcorner1"><a href="/home">Home</a></h2>
+        <h2 class="topcorner2"><a href="/logout">Log Out</a></h2>
+    </body>
+    {% for seat_obj, passenger_obj, train_obj, can_cancel in everything %}
+    <form action="/wallet/cancel_ticket/{{seat_obj.id}}" method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>
+                Passenger Name :
+            </td>
+            <td>
+                {{passenger_obj.name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Source :
+            </td>
+            <td>
+                {{seat_obj.seat_source}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Destination :
+            </td>
+            <td>
+                {{seat_obj.seat_destination}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Triain Name :
+            </td>
+            <td>
+                {{train_obj.Name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Date :
+            </td>
+            <td>
+                {{train_obj.date}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cost :
+            </td>
+            <td>
+                {{seat_obj.cost}}
+            </td>
+        </tr>
+        {% if can_cancel %}
+        <tr>
+            <td style="text-align:left" colspan="2">
+                <input type="submit" value="Cancel Ticket">
+            </td>
+        </tr>
+        {% endif %}
+    </table>
+    </form>
+    <p>---------------------------------------------------------------------------------------</p>
+    {% endfor %}
+</html>

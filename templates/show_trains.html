@@ -1,0 +1,108 @@
+<html>
+    <body>
+        {% for train, source, destination, cost in everything %}
+        <!--<a href="/seats/{{train.id}}/">-->
+        <form action="/seats/{{train.id}}/{{source.id}}/{{destination.id}}" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <h3>{{train.Name}}</h3>
+                <table>
+                    <tr>
+                        <td>
+                            source : 
+                        </td>
+                        <td>
+                            {{source.route}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            destination : 
+                        </td>
+                        <td>
+                            {{destination.route}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            date : 
+                        </td>
+                        <td>
+                            {{date}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Arrival Time : 
+                        </td>
+                        <td>
+                            {{source.arrival_time}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Departure Time : 
+                        </td>
+                        <td>
+                            {{source.departure_time}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date of reaching destination: 
+                        </td>
+                        <td>
+                            {{destination.arrival_date}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Time of reaching destination : 
+                        </td>
+                        <td>
+                            {{destination.arrival_time}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Cost : 
+                        </td>
+                        <td>
+                            {{cost}}
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <label> Selected Coach Type :  </label>  
+                <select name="coach_type">  
+                {% ifequal coach_type "FC" %}
+                <option value = "FC" selected> First class  </option> 
+                {% else %} 
+                <option value = "FC"> First class  </option> 
+                {% endifequal %}
+
+                {% ifequal coach_type "SC" %}
+                <option value = "SC" selected> Second class </option>  
+                {% else %} 
+                <option value = "SC"> Second class </option> 
+                {% endifequal %}
+
+                {% ifequal coach_type "sleeper" %}
+                <option value = "sleeper" selected> Sleeper  </option> 
+                {% else %} 
+                <option value = "sleeper"> Sleeper  </option>
+                {% endifequal %}
+                
+                </select>  
+                <input type="submit" value="Book">
+                 
+            </tr>
+        </table>
+        </form>
+        <!--</a>-->
+        <p>--------------------------------------------------------------------------------------------------</p>
+        <br><br>
+        {% endfor %}
+    </body>
+</html>

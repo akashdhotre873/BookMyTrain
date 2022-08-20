@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <style type="text/css">
+            .topcorner1{
+              position:absolute;
+              top:0;
+              right:150;
+            }
+           </style>
+           <style type="text/css">
+            .topcorner2{
+              position:absolute;
+              top:0;
+              right:20;
+            }
+           </style>
+    </head>
+    <body>
+        <h2 class="topcorner1"><a href="/home">Home</a></h2>
+        <h2 class="topcorner2"><a href="/logout">Log Out</a></h2>
+    </body>
+    <h2>Your Ticket has been booked</h2>
+    <h3>A Ticket has been sent to passenger's email id</h3>
+    <h4>Ticket Details</h4>
+    <table>
+        <tr>
+            <td>
+                Passenger Name :
+            </td>
+            <td>
+                {{passenger_obj.name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Source :
+            </td>
+            <td>
+                {{seat_obj.seat_source}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Destination :
+            </td>
+            <td>
+                {{seat_obj.seat_destination}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Triain Name :
+            </td>
+            <td>
+                {{train_obj.Name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Date :
+            </td>
+            <td>
+                {{train_obj.date}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cost :
+            </td>
+            <td>
+                {{seat_obj.cost}}
+            </td>
+        </tr>
+    </table>
+</html>
